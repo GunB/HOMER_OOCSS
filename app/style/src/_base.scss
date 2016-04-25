@@ -1,0 +1,97 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/04/2016, 08:34:01 AM
+    Author     : Heiner W. Angarita Maldonado <heiner.angarita@beitech.co>
+*/
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/css3/animation";
+/**
+* To install animations, use the comand
+gem install animate --pre
+
+and add to the config.rb the line
+require "animate"
+*/
+@import "animate";
+@include animate-fadeInDown;
+@include animate-fadeOutLeft;
+@include animate-fadeInLeft;
+
+// Color list
+$border-color: rgb(114, 114, 114);
+$border-color-light: lighten($border-color, 40%);
+$background-color: rgb(67, 65, 66);
+$background-color-light: lighten($background-color, 100%);
+
+$color-text: #6a6c6f;
+$color-primary: rgb(166, 195, 7);
+
+// Additional variables
+$menu-width: 25rem;
+$header-height: 9.8rem;
+$main-transition: all 0.1s ease-out 0s;
+
+
+/* class no existence */
+
+%no-select {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-size: 1.5rem;
+}
+
+input{
+    border: 0;
+}
+
+
+/********* sticky footer *********/
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    @include display-flex;
+    @include flex-direction(column);
+}
+
+main {
+    /* flex: 1; would be enough but it looks bad in IE */
+    @include flex (1 0 auto);
+    @include display-flex(flex);
+}
+
+a{
+    text-decoration: none;
+}
+
+/******* clear fix ***********/
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
