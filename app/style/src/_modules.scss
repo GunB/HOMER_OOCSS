@@ -131,6 +131,10 @@
         &:nth-of-type(1){
             border-top: 1px solid $border-color-light;
         }
+        &--mini{
+            font-size: 1rem;
+            @include cross-browser("width", "max-content");
+        }
         &--toggable{
             position: relative;
             background: lighten($background-color, 20%);

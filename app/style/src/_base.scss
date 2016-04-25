@@ -50,6 +50,21 @@ $main-transition: all 0.1s ease-out 0s;
     user-select: none;
 }
 
+$prefixes: (
+chrome: "-webkit-",
+mozilla: "-moz-",
+ie: "-ms-",
+opera: "-o-"
+);
+
+@mixin cross-browser($attribute, $element) {
+    @each $property, $value  in $prefixes {
+        $attribute : $value + $element;
+        @debug $attribute;
+        @debug $value + $element;
+    }
+}
+
 html{
     font-size: 10px;
 }
@@ -61,7 +76,6 @@ body{
 input{
     border: 0;
 }
-
 
 /********* sticky footer *********/
 html {
