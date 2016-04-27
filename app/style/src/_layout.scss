@@ -8,3 +8,51 @@ and open the template in the editor.
     Author     : Heiner W. Angarita Maldonado <heiner.angarita@beitech.co>
 */
 
+/* The new <main> is not styled in the UA stylesheet for IE10, so we need to set it to display block */
+*{
+    //border: 1px solid red !important;
+}
+main {
+    display: block;
+}
+
+.flexboxtweener, .flexboxtweener>body {
+    height: calc(100% - 1px)\0;
+}
+
+body {
+    min-height: 100vh;
+    min-height: inherit\0;
+
+    /**
+    * Making the <body> element behave like a flexbox container:
+    */
+
+    /* Ye Olde Flexbox for Webkit */
+    display: -webkit-box;
+    /* Tweener flexbox */
+    display: -ms-flexbox;
+    /* Prefixed "new flexbox" */
+    display: -webkit-flex;
+    /* unprefixed standard "new flexbox" version */
+    display: flex;
+
+    /**
+    * Making the things inside <body> line up vertically
+    */
+
+    /* Your grandparents flexbox for Webkit */
+    -webkit-box-orient: vertical;
+    /* Prefixed new syntax: */
+    -webkit-flex-direction: column;
+    /* Same syntax for weird IE tweener */
+    -ms-flex-direction: column;
+    /* unprefixed new syntax */
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    @include prefix_properties(flex, 1 0 auto);
+}
