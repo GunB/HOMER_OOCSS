@@ -180,7 +180,8 @@
             position: absolute;
             transform: translate(-2px, 0) rotate(-90deg);
         }
-        input[type=checkbox]:nth-of-type(1) {
+    }
+    &__control {
             position: absolute;
             cursor: pointer;
             width: 100%;
@@ -223,7 +224,6 @@
                 }
             }
         }
-    }
 }
 
 .dropdown{
