@@ -49,7 +49,7 @@
     &--header{
         @include display-flex(inline-flex);
         height: 100%;
-        //width: 100%;
+        @include prefix_properties(flex, 1 0 auto);
     }
 }
 
@@ -182,48 +182,48 @@
         }
     }
     &__control {
-            position: absolute;
-            cursor: pointer;
-            width: 100%;
-            height: 90%;
-            z-index: 1;
-            opacity: 0;
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        height: 90%;
+        z-index: 1;
+        opacity: 0;
+        &:hover{
+            &~.accordion__title{
+                background: lighten($background-color, 50%);
+            }
+        }
+        &:checked {
             &:hover{
                 &~.accordion__title{
                     background: lighten($background-color, 50%);
                 }
             }
-            &:checked {
-                &:hover{
-                    &~.accordion__title{
-                        background: lighten($background-color, 50%);
-                    }
-                }
-                &~.accordion__content {
-                    margin-top: 0;
-                    max-height: 0;
-                    opacity: 0;
-                    z-index: -1;
-                    display: none;
-                    &--transition{
-                        animation: fadeOutLeft 0.5s ease both;
-                        //animation: none;
-                    }
-                }
-                &~.accordion__title{
-                    &--toggable{
-                        background: $background-color-light;
-                        color: $color-text;
-                        &:after{
-                            content: "\f104";
-                        }
-                    }
-                }
-                &~.accordion__item--icon {
-                    transform: translate(-2px, 0);
+            &~.accordion__content {
+                margin-top: 0;
+                max-height: 0;
+                opacity: 0;
+                z-index: -1;
+                display: none;
+                &--transition{
+                    animation: fadeOutLeft 0.5s ease both;
+                    //animation: none;
                 }
             }
+            &~.accordion__title{
+                &--toggable{
+                    background: $background-color-light;
+                    color: $color-text;
+                    &:after{
+                        content: "\f104";
+                    }
+                }
+            }
+            &~.accordion__item--icon {
+                transform: translate(-2px, 0);
+            }
         }
+    }
 }
 
 .dropdown{
@@ -238,5 +238,22 @@
         &--left{
             right: 0;
         }
+    }
+}
+
+.hint{
+    &__base{
+        cursor: pointer;
+        &:hover{
+            //background: red;
+            &>.hint__element{
+                background: red;
+                display: inline-block;
+            }
+        }
+    }
+    &__element{
+        position: absolute;
+        display: none;
     }
 }
